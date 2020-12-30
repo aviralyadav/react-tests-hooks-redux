@@ -1,26 +1,27 @@
-import React, {Component} from 'react';
-import logo from './logo.svg';
+import React, { Component, useEffect } from 'react';
 import './App.css';
+import {Button} from '@chakra-ui/react'
+import { Route, Switch } from 'react-router-dom';
+import PostEdit from './pages/PostEdit';
+import PostList from './pages/PostList';
 
 class App extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
       counter: 0
     }
   }
-  increment = () => {
-    this.setState(prevState => {
-      return {counter: prevState.counter + 1};
-    });
-  }
+
   render() {
-    // const 
     return (
       <div className="App" data-test="component-app">
-        <h2 data-test="title">Hello React</h2> 
-    <div data-test="counter-display">Count: {this.state.counter}</div>
-        <button data-test="increment-button" onClick={() => this.setState({counter: this.state.counter + 1})}>Increment Counter</button>
+        <Switch>
+          <Route exact path="/">Posts</Route>
+          <Route exact path="/posts"><PostList/></Route>
+          <Route path="/posts/new"><PostEdit/></Route>
+          <Route path="/posts/:postId">Posts Detail</Route>
+        </Switch>
       </div>
     );
   }

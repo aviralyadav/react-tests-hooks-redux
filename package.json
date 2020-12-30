@@ -4,12 +4,16 @@
   "private": true,
   "dependencies": {
     "@babel/core": "7.7.4",
+    "@chakra-ui/react": "^1.1.0",
+    "@emotion/react": "^11.1.4",
+    "@emotion/styled": "^11.0.0",
     "@svgr/webpack": "4.3.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "@typescript-eslint/eslint-plugin": "^2.8.0",
     "@typescript-eslint/parser": "^2.8.0",
+    "axios": "^0.21.1",
     "babel-eslint": "10.0.3",
     "babel-jest": "^24.9.0",
     "babel-loader": "8.0.6",
@@ -29,6 +33,7 @@
     "eslint-plugin-react": "7.16.0",
     "eslint-plugin-react-hooks": "^1.6.1",
     "file-loader": "4.3.0",
+    "framer-motion": "^3.1.1",
     "fs-extra": "^8.1.0",
     "html-webpack-plugin": "4.0.0-beta.5",
     "identity-obj-proxy": "3.0.0",
@@ -36,6 +41,7 @@
     "jest-environment-jsdom-fourteen": "0.1.0",
     "jest-resolve": "24.9.0",
     "jest-watch-typeahead": "0.4.2",
+    "json-server": "^0.16.3",
     "mini-css-extract-plugin": "0.8.0",
     "optimize-css-assets-webpack-plugin": "5.0.3",
     "pnp-webpack-plugin": "1.5.0",
@@ -48,6 +54,10 @@
     "react-app-polyfill": "^1.0.5",
     "react-dev-utils": "^10.0.0",
     "react-dom": "^16.12.0",
+    "react-redux": "^7.1.3",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.0.5",
+    "redux-file-upload": "^0.0.19",
     "resolve": "1.12.2",
     "resolve-url-loader": "3.1.1",
     "sass-loader": "8.0.0",
@@ -64,7 +74,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "json-server": "json-server --watch db.json --port 3002"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -141,7 +152,14 @@
     "env": {
       "production": {
         "plugins": [
-          ["react-remove-properties", {"properties": ["data-test"]}]
+          [
+            "react-remove-properties",
+            {
+              "properties": [
+                "data-test"
+              ]
+            }
+          ]
         ]
       }
     },
