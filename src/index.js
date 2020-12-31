@@ -12,7 +12,7 @@ import { Provider } from './context';
 ReactDOM.render(
   <ChakraProvider>
     <Router>
-      <Provider value={{name: 'Avis React'}}>
+      <Provider value={{name: 'Post List'}}>
       <App />
       </Provider>
     </Router>
